@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator.io</title>
+
+  <!-- Add a link to the Montserrat font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+
+  <style>
+    /* CSS styles for the layout */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      height: 1000px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Media queries for different screen sizes */
+    @media (max-width: 600px) {
+      header,
+      main,
+      footer {
+        padding: 10px;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 1200px) {
+      header,
+      main,
+      footer {
+        padding: 15px;
+      }
+    }
+
+    @media (min-width: 1201px) {
+      header,
+      main,
+      footer {
+        padding: 20px;
+      }
+    }
+
+    /* Header */
+    .Logo {
+      background-color: #bde4ed;
+      padding: 10px;
+      text-align: center;
+      color: #023653;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+    }
+
+    /* CSS property for navigation menu */
+    .nav_menu {
+      overflow: hidden;
+      background-color: #bde4ed;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+
+    .nav_menu a {
+      float: left;
+      display: block;
+      color: #023653;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .nav_menu a:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+      color: #023653;
+    }
+
+    .nav_menu a.split {
+      float: right;
+      background-color:  #03566d;
+      color: white;
+    }
+
+    .nav_menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+    }
+    
+    .nav_menu a.active {
+      color: #bfddf1;
+    }
+
+    .active {
+      background-color: #03566d;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    footer {
+      background-color: #bde4ed;
+      padding: 10px;
+      min-height: .5vh;
+      text-align: center;
+      color: #023653; /* Change the color of the footer text */
+  }
+
+  footer i {
+    color: #023653; /* Change the color of the footer icons */
+  }
+
+  </style>
+
+  <style>
+    .container1, .container2, .container3, .container4 {
+      float: left;
+      width: 25%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container1 img, .container2 img, .container3 img, .container4 img {
+      display: block;
+      width: 100%;
+      height: 500px;
+    }
+
+    .overlay, .overlay2, .overlay3, .overlay4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-color: #023653;
+    }
+
+    .container1:hover .overlay, .container2:hover .overlay2, .container3:hover .overlay3, .container4:hover .overlay4 {
+      opacity: 0.7;
+    }
+
+    /* Add styles for the description inside the image box */
+    .text {
+      color: white;
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .description {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 15px;
+      font-weight: lighter;
+      font-style: italic;
+      font-family: "Open Sans", sans-serif;
+      opacity: 1; /* Initially hidden */
+      transition: opacity 0.5s ease;
+    }
+
+    .container1:hover .description, .container2:hover .description, .container3:hover .description, .container4:hover .description {
+      opacity: 1; /* Display on hover */
+    }
+    
+  </style>
+
+</head>
+
+<body>
+
+  <div class="Logo"><h2>Calculator.io</h2></div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div class="nav_menu" id="nav_menu">
+    <a class="active" href="index.html"><i class="fa fa-fw fa-home" style="color: white;"></i></a>
+    <a href="conversion.html">Conversion</a>
+    <a href="tax.html">Income Tax</a>
+    <a href="factorial.html">Finding Nth Factorial</a>
+    <a href="payroll.html">Simple Payroll</a>
+    <a href="about.html" class="split">About</a>
+  </div>
+
+  <main>
+
+    <section id="conversion_img">
+      <div class="container1">
+        <a href="conversion.html">
+          <img src="https://images.unsplash.com/photo-1582572186057-0e74d3c715ea?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Conversion Calculator">
+          <div class="overlay">
+            <div class="text">Conversion Calculator</div>
+            <div class="description">Converts between fahrenheit-celcius and feet-meters, vice versa.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <section id="tax_img">
+      <div class="container2">
+        <a href="tax.html">
+          <img src="https://images.pexels.com/photos/6963846/pexels-photo-6963846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tax Calculator">
+          <div class="overlay2">
+            <div class="text">Income Tax</div>
+            <div class="description">Calculates the income tax of a person based on their income.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="factorial_img">
+      <div class="container3">
+        <a href="factorial.html">
+        <img src="https://images.pexels.com/photos/4240497/pexels-photo-4240497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Factorial...">
+        <div class="overlay3">
+          <div class="text">Finding Nth Factorial</div>
+          <div class="description">Calculates the factorial, average, and sum of the First Natural numbers.</div>
+        </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="payroll_img" style="width: 100%; float: left">
+      <div class="container4">
+        <a href="payroll.html">
+        <img src="https://images.pexels.com/photos/6694485/pexels-photo-6694485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Simple Payroll">
+        <div class="overlay4">
+          <div class="text">Simple Payroll</div>
+          <div class="description">Calculates the payroll of an employee based on their days worked and daily rates.</div>
+        </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Calculator.io - No personal accounts linked</p>
