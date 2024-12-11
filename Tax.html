@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Calculator.io</title>    
+
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Header */
+    .Logo {
+      background-color: #bde4ed;
+      padding: 10px;
+      text-align: center;
+      color: #023653;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+    }
+
+    /* Navigation styles */
+    .nav_menu, .nav_menu2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background-color: #bde4ed;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      color: #023653;
+    }
+
+    .nav_menu a {
+      padding: 14px 16px;
+      text-decoration: none;
+      color: #023653;
+      text-align: center;
+    }
+
+    .nav_menu a:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav_menu a.active {
+      background-color: #03566d;
+      color: #bfddf1;
+    }
+
+    /* Main content */
+    main {
+      background-color: #ffffff;
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    footer {
+      background-color: #bde4ed;
+      padding: 10px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: #023653;
+    }
+
+    footer i {
+      color: #023653;
+    }
+
+    /* Grid layout for main content */
+    #maindiv {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(19, 100px);
+      gap: 10px;
+    }
+
+    /* Styling the input section */
+    #inputdiv, #cartdiv {
+      background-color: #ffffff;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: #023653;
+    }
+
+    .inputlabel {
+      text-align: right;
+      width: 120px;
+    }
+
+    input {
+      width: 100px;
+      text-align: left;
+      box-sizing: border-box;
+      color: #023653;
+    }
+
+    /* Table Styling */
+    #itemstable {
+      margin: auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #itemstable td, #itemstable th {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    #itemstable tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #itemstable tr:nth-child(odd) {
+      background-color: #bfddf1;
+    }
+
+    #totalamount {
+      text-align: right;
+    }
+
+    /* Button styles */
+    button {
+      background-color: #03566d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button:hover {
+      background-color: #023653;
+    }
+
+    #btnaddtolist, #btnclearlist, #btndelete {
+      margin-bottom: 10px;
+    }
+
+    /* Footer icon styles */
+    footer i {
+      margin: 0 10px;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <div class="Logo"><h2>Calculator.io</h2></div>
+
+  <div class="nav_menu">
+    <a href="index.html"><i class="fa fa-fw fa-home"></i></a>
+    <a href="conversion.html">Conversion</a>
+    <a href="tax.html">Income Tax</a>
+    <a href="factorial.html">Finding Nth Factorial</a>
+    <a class="active" href="payroll.html">Simple Payroll</a>
+    <a href="about.html" class="split">About</a>
+  </div>
+
+  <div class="nav_menu2">
+    <h2>Employee Payroll System</h2>
+  </div>
+
+  <main>
+    <div id="maindiv">
+      <div id="inputdiv">
+        <h3>Choose Item</h3>
+        
+        <label class="inputlabel" for="employee_name">Employee Name:</label>
+        <input id="employee_name" type="text" placeholder="Enter a name">
+        <br>
+        <label class="inputlabel" for="hourly_rate">Daily Rate:</label>
+        <input id="hourly_rate" type="number" placeholder="Enter their rates">
+        <br>
+        <label class="inputlabel" for="hours_worked">Days Worked:</label>
+        <input id="hours_worked" type="number" placeholder="Enter the days">
+        <br>
+        <label class="inputlabel" for="deduction">Deduction Amount:</label>
+        <input id="deduction" type="number" placeholder="Enter an amount">
+      </div>
+
+      <div id="buttonsdiv">
+        <button id="btnaddtolist">Add Employee</button>
+        <br><br>
+        <button id="btnclearlist">Clear List</button> 
+      </div>
+
+      <div id="cartdiv">
+        <h3>List of Employees</h3>
+        <table id="itemstable">
+          <thead>
+            <tr>
+              <td>Employee No.</td>
+              <td>Employee Name</td>
+              <td>Days Worked</td>
+              <td>Daily Rate</td>
+              <td>Gross Pay</td>
+              <td>Deduction</td>
+              <td>Net Pay</td>
+            </tr>
+          </thead>
+          <tbody id="tablebody"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5"></td>
+              <td>Total</td>
+              <td id="totalamount"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <br><br>
+        <label for="items">No. of Employees:</label>
+        <input id="items" type="number" readonly>
+        <br><br>
+        <label for="delitem">Delete Employee:</label>
+        <input id="delitem" type="number">
+        <button id="btndelete">Delete</button>
+      </div>
+    </div>
+
+    <!-- Pop-up dialogs -->
+    <dialog id="dlgConfirmCancel">
+      <form method="dialog">
+        <h4 id="dlgmsg"></h4>   
+        <button id="btnConfirm" value="confirm">Confirm</button>
+        <button id="btnCancel" value="cancel">Cancel</button>
+      </form>
+    </dialog>
+
+    <dialog id="dlgAreYouSure">
+      <form method="dialog">
+        <h4 id="dlgmsg2">Are you sure?</h4>   
+        <button id="btnYes" value="yes">Yes</button>
+        <button id="btnNo" value="no">No</button>
+      </form>
+    </dialog>
+
+    <script type="text/javascript">
+      // Function to calculate decimal places
+      function CalculateDecimal(v, x) {
+        return isNaN(v) ? NaN : parseFloat(v.toFixed(x));
+      }
+
+      // Employee list and functions
+      var employeeList = [];
+
+      function initEmployeeList() {
+        employeeList = [];
+        showEmployeeList();
+      }
+
+      function addEmployee() {
+        var employee = {
+          "name": document.getElementById("employee_name").value,
+          "hourlyRate": parseFloat(document.getElementById("hourly_rate").value),
+          "hoursWorked": parseFloat(document.getElementById("hours_worked").value),
+          "deduction": parseFloat(document.getElementById("deduction").value),
+          "grossPay": function () {
+            return this.hourlyRate * this.hoursWorked;
+          },
+          "netPay": function () {
+            return this.grossPay() - this.deduction;
+          }
+        };
+        employeeList.push(employee);
+        showEmployeeList();
+        clearInputFields();
+      }
+
+      function deleteEmployee() {
+        var indexToDelete = parseInt(document.getElementById("delitem").value);
+        if (indexToDelete && indexToDelete <= employeeList.length) {
+          employeeList.splice(indexToDelete - 1, 1);
+          showEmployeeList();
+          document.getElementById("delitem").value = "";
+        }
+      }
+
+      function showEmployeeList() {
+        var tablebody = document.getElementById("tablebody");
+        tablebody.innerHTML = '';
+        var totalNetPay = 0;
+
+        employeeList.forEach(function (employee, index) {
+          var row = tablebody.insertRow();
+          row.insertCell(0).textContent = index + 1;
+          row.insertCell(1).textContent = employee.name;
+          row.insertCell(2).textContent = employee.hoursWorked;
+          row.insertCell(3).textContent = employee.hourlyRate;
+          row.insertCell(4).textContent = employee.grossPay();
+          row.insertCell(5).textContent = employee.deduction;
+          row.insertCell(6).textContent = employee.netPay();
+          totalNetPay += employee.netPay();
+        });
+
+        document.getElementById("items").value = employeeList.length;
+        document.getElementById("totalamount").textContent = totalNetPay;
+      }
+
+      function clearInputFields() {
+        document.getElementById("employee_name").value = "";
+        document.getElementById("hourly_rate").value = "";
+        document.getElementById("hours_worked").value = "";
+        document.getElementById("deduction").value = "";
+      }
+
+      // Event listeners
+      document.getElementById("btnaddtolist").addEventListener("click", addEmployee);
+      document.getElementById("btnclearlist").addEventListener("click", initEmployeeList);
+      document.getElementById("btndelete").addEventListener("click", deleteEmployee);
+
+      // Initialize the employee list when the page loads
+      window.onload = initEmployeeList;
+    </script>
+  </main>
+
+  <footer>
+    <i class="fa fa-fw fa-phone"></i> Support: +1 (123) 456-7890 | 
+    <i class="fa fa-fw fa-envelope"></i> Email: support@calculator.io | 
+    <i class="fa fa-fw fa-map-marker"></i> Address: 123 Main St, City, Country
+  </footer>
+</body>
+
+</html>
