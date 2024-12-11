@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calculator</title>
+
+  <!-- Add a link to the Roboto font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+
+  <style>
+    /* Updated CSS for a fresh design */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto', sans-serif;
+      background-color: #e0f7fa;
+    }
+    /* Header */
+    .header-title {
+      background-color: #b3e5fc;
+      padding: 15px;
+      text-align: center;
+      color: #0277bd;
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    /* Navbar Menu */
+    .navbar-menu {
+      overflow: hidden;
+      background-color: #b3e5fc;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+
+    .navbar-menu a {
+      display: block;
+      color: #0277bd;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .navbar-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+      color: #0277bd;
+    }
+
+    .navbar-menu a.active {
+      background-color: #0288d1;
+      color: white;
+    }
+
+    .navbar-menu a.split {
+      float: right;
+      background-color: #0288d1;
+      color: white;
+    }
+
+    .navbar-menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      background-color: #e0f7fa;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #b3e5fc;
+      padding: 10px;
+      text-align: center;
+      color: #0277bd;
+    }
+
+    footer i {
+      color: #0277bd;
+    }
+
+    /* About me section */
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      background-color: #e0f7fa;
+      color: #0277bd;
+    }
+
+    .about-me h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    .about-me p {
+      margin-bottom: 15px;
+    }
+
+    .about-me .social-icons {
+      margin-top: 20px;
+    }
+
+    .about-me .social-icons i {
+      margin-right: 15px;
+      font-size: 1.8em;
+      color: #0277bd;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo and Header -->
+  <div class="header-title">
+    <h2>My Calculator</h2>
+  </div>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Navigation Menu -->
+  <div class="navbar-menu" id="navbar-menu">
+    <a class="active" href="index.html"><i class="fa fa-fw fa-home" style="color: white;"></i></a>
+    <a href="conversion.html">Conversion</a>
+    <a href="tax.html">Income Tax</a>
+    <a href="factorial.html">Finding Nth Factorial</a>
+    <a href="payroll.html">Simple Payroll</a>
+    <a href="about.html" class="split">About</a>
+  </div>
+
+  <!-- Main Content Section -->
+  <main>
+    <div class="about-me">
+      <h1>About This Project</h1>
+      <p>Welcome! This site features a collection of useful calculators for everyday tasks. I’m passionate about creating tools that make life easier. Enjoy exploring!</p>
+      <div class="social-icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-github"></i>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>@yourusername</p>
+    <i class="fa fa-fw fa-facebook"></i>
+    <i class="fa fa-fw fa-instagram"></i>
+    <i class="fa fa-fw fa-twitter"></i>
+    <i class="fa fa-fw fa-github"></i>
+  </footer>
+
+  <!-- Scroll Animation -->
+  <script>
+    let previousScroll = 0;
+
+    window.addEventListener('scroll', function () {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > previousScroll) {
+        // Scroll down
+        document.querySelector('.header-title').style.transform = 'translateY(-100%)';
+        document.querySelector('.navbar-menu').style.transform = 'translateY(-100%)';
+      } else {
+        // Scroll up
+        document.querySelector('.header-title').style.transform = 'translateY(0)';
+        document.querySelector('.navbar-menu').style.transform = 'translateY(0)';
+      }
+
+      previousScroll = currentScroll;
+    });
+  </script>
+
+</body>
+
+</html>
